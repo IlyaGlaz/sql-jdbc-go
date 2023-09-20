@@ -6,7 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,13 +17,11 @@ public class JdbcRunner {
         System.out.println(list);
     }
 
-
-
     public static List<Long> getTicketByFlightId(Long flightId) throws SQLException {
         String sql = """
                 SELECT id
                 FROM ticket
-                WHERE flight_id = ? 
+                WHERE flight_id = ?
                 """;
 
         List<Long> result = new ArrayList<>();

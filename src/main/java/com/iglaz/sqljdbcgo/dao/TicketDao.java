@@ -21,7 +21,6 @@ public class TicketDao {
             VALUES (?, ?, ?, ?, ?)
             """;
 
-
     private TicketDao() {
 
     }
