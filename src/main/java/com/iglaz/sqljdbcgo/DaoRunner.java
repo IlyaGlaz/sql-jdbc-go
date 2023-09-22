@@ -8,22 +8,25 @@ import java.sql.SQLException;
 
 public class DaoRunner {
     public static void main(String[] args) throws SQLException {
-        TicketDao dao = TicketDao.getInstance();
-
         TicketEntity ticket = TicketEntity.builder()
                 .passengerNo("2323423")
-                .passengerName("Vasya")
+                .passengerName("Ivan")
                 .flingId(2L)
-                .seatNo("A222")
-                .cost(BigDecimal.valueOf(22.00))
+                .seatNo("A333")
+                .cost(BigDecimal.valueOf(45.00))
                 .build();
+        save(ticket);
+    }
+
+    private static void save(TicketEntity ticket) throws SQLException {
+        TicketDao dao = TicketDao.getInstance();
 
         System.out.println(dao.save(ticket));
     }
 
-    private static void deleteEntity() {
+    private static void deleteEntity(Long id) {
         TicketDao dao = TicketDao.getInstance();
 
-        System.out.println(dao.delete(2L));
+        System.out.println(dao.delete(id));
     }
 }
