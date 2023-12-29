@@ -16,7 +16,9 @@ public class ServerSocketRunner {
              Socket socket = serverSocket.accept();
              DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
              DataInputStream dataInputStream = new DataInputStream(socket.getInputStream())) {
+
             String request = dataInputStream.readUTF();
+
             while (!"stop".equals(request)) {
                 System.out.println("Client request " + request);
                 dataOutputStream.writeUTF(ANSWER[random.nextInt(3)]);

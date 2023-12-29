@@ -11,7 +11,8 @@ public class SocketRunner {
         try (Socket socket = new Socket("localhost", 5000);
              DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
              DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
-             Scanner scanner = new Scanner(System.in)) {
+             Scanner scanner = new Scanner(System.in))
+        {
             while (scanner.hasNextLine()) {
                 String massage = scanner.nextLine();
                 dataOutputStream.writeUTF(massage);
