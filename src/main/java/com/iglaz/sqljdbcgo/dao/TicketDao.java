@@ -15,6 +15,15 @@ import java.util.Optional;
 public class TicketDao {
 
     private static final TicketDao INSTANCE = new TicketDao();
+
+    public static TicketDao getInstance() {
+        return INSTANCE;
+    }
+
+    private TicketDao() {
+
+    }
+
     private static final String DELETE_SQL = """
             DELETE FROM ticket
             WHERE id = ?
@@ -44,10 +53,6 @@ public class TicketDao {
     private static final String FIND_BY_ID_SQL = FIND_ALL_SQL + """
             WHERE id = ?
             """;
-
-    private TicketDao() {
-
-    }
 
     public List<TicketEntity> findAll() {
         try (var connection = ConnectionManager.open();
@@ -111,10 +116,6 @@ public class TicketDao {
             }
             return ticketEntity;
         }
-    }
-
-    public static TicketDao getInstance() {
-        return INSTANCE;
     }
 
     private TicketEntity buildTicket(ResultSet resultSet) throws SQLException {
