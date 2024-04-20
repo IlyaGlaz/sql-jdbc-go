@@ -12,7 +12,7 @@ public class ServerSocketRunner {
     private static final Random random = new Random();
 
     public static void main(String[] args) throws IOException {
-        try (ServerSocket serverSocket = new ServerSocket(5000);
+        try (ServerSocket serverSocket = new ServerSocket(9999);
              Socket socket = serverSocket.accept();
              DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
              DataInputStream dataInputStream = new DataInputStream(socket.getInputStream())) {

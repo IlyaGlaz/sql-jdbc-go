@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class SocketRunner {
     public static void main(String[] args) throws IOException {
-        try (Socket socket = new Socket("localhost", 5000);
+        try (Socket socket = new Socket("localhost", 9999);
              DataOutputStream dataOutputStream = new DataOutputStream(socket.getOutputStream());
              DataInputStream dataInputStream = new DataInputStream(socket.getInputStream());
              Scanner scanner = new Scanner(System.in))
